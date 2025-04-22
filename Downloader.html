@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>YouTube & TikTok Downloader Tool</title>
+  <style>
+    body {
+      background: #000;
+      color: #0f0;
+      font-family: 'Quicksand', sans-serif;
+      padding: 20px;
+      min-height: 100vh;
+    }
+    h1 {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    .tool-container {
+      max-width: 600px;
+      margin: 0 auto 40px;
+      background: #111;
+      padding: 20px;
+      border: 1px solid #0f0;
+      border-radius: 10px;
+    }
+    label {
+      display: block;
+      margin-bottom: 10px;
+      font-weight: 600;
+    }
+    input[type="text"] {
+      width: 100%;
+      padding: 10px;
+      background: #000;
+      border: 1px solid #0f0;
+      color: #0f0;
+      border-radius: 5px;
+      font-size: 1em;
+      margin-bottom: 15px;
+    }
+    button {
+      background: #0f0;
+      border: none;
+      padding: 10px 20px;
+      color: #000;
+      font-weight: bold;
+      cursor: pointer;
+      border-radius: 5px;
+      transition: background 0.3s;
+    }
+    button:hover {
+      background: #0c0;
+    }
+    p.note {
+      margin-top: 10px;
+      font-size: 0.9em;
+      color: #aaa;
+    }
+  </style>
+</head>
+<body>
+  <h1>YouTube & TikTok Video Downloader</h1>
+
+  <div class="tool-container" id="youtube-tool">
+    <h2>YouTube Video Downloader</h2>
+    <label for="youtube-url">Enter YouTube Video URL:</label>
+    <input type="text" id="youtube-url" placeholder="https://www.youtube.com/watch?v=example" />
+    <button onclick="downloadYouTube()">Get Download Link</button>
+    <p class="note">* This is only a UI. Use external services or apps to download videos.</p>
+    <p id="youtube-result"></p>
+  </div>
+
+  <div class="tool-container" id="tiktok-tool">
+    <h2>TikTok Video Downloader</h2>
+    <label for="tiktok-url">Enter TikTok Video URL:</label>
+    <input type="text" id="tiktok-url" placeholder="https://www.tiktok.com/@user/video/1234567890" />
+    <button onclick="downloadTikTok()">Get Download Link</button>
+    <p class="note">* This is only a UI. Use external services or apps to download videos.</p>
+    <p id="tiktok-result"></p>
+  </div>
+
+<script>
+  function downloadYouTube() {
+    const url = document.getElementById('youtube-url').value.trim();
+    const result = document.getElementById('youtube-result');
+    if (!url) {
+      result.textContent = "Please enter a valid YouTube URL.";
+      return;
+    }
+    // Example external site for download, replace with actual
+    const downloadLink = `https://y2mate.com/youtube/${encodeURIComponent(url)}`;
+    result.innerHTML = `Click here to download: <a href="${downloadLink}" target="_blank">${downloadLink}</a>`;
+  }
+
+  function downloadTikTok() {
+    const url = document.getElementById('tiktok-url').value.trim();
+    const result = document.getElementById('tiktok-result');
+    if (!url) {
+      result.textContent = "Please enter a valid TikTok URL.";
+      return;
+    }
+    // Example external site for download, replace with actual
+    const downloadLink = `https://snaptik.app/en/download?url=${encodeURIComponent(url)}`;
+    result.innerHTML = `Click here to download: <a href="${downloadLink}" target="_blank">${downloadLink}</a>`;
+  }
+</script>
+</body>
+</html>

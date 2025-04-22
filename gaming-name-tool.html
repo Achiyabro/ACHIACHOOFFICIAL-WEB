@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Gaming Name Generator - ACHIACHIOFFICIAL TOOL</title>
+  <style>
+    body {
+      background: black;
+      color: #0f0;
+      font-family: monospace;
+      text-align: center;
+      padding: 20px;
+    }
+
+    input, button, select {
+      padding: 10px;
+      margin: 10px;
+      background: #111;
+      border: 1px solid #0f0;
+      color: #0f0;
+      font-family: monospace;
+    }
+
+    .output {
+      font-size: 24px;
+      margin: 20px 0;
+      word-wrap: break-word;
+    }
+
+    .section {
+      border: 1px solid #0f0;
+      padding: 20px;
+      margin-top: 30px;
+    }
+
+    .animated-footer {
+      margin-top: 40px;
+      font-size: 18px;
+      animation: typing 4s steps(22) infinite;
+      white-space: nowrap;
+      overflow: hidden;
+      border-right: 2px solid #0f0;
+      width: 18ch;
+    }
+
+    @keyframes typing {
+      from { width: 0 }
+      to { width: 18ch }
+    }
+
+    .code-box {
+      background: #111;
+      border: 1px solid #0f0;
+      padding: 10px;
+      margin: 5px 0;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Gaming Name Generator</h1>
+
+  <input type="text" id="nameInput" placeholder="Enter your name">
+  <button onclick="generateName()">Generate</button>
+
+  <div class="output" id="generatedName"></div>
+
+  <div class="section">
+    <h2>Free Fire Name Color Codes</h2>
+    <div class="code-box">Red: [c][ff0000]</div>
+    <div class="code-box">Blue: [c][0600ff]</div>
+    <div class="code-box">Green: [c][00ff00]</div>
+    <div class="code-box">Yellow: [c][ffff00]</div>
+    <div class="code-box">Purple: [c][8000ff]</div>
+    <div class="code-box">Orange: [c][ff9900]</div>
+    <div class="code-box">White: [c][ffffff]</div>
+  </div>
+
+  <div class="section">
+    <h2>Verified (V) Badge Colors</h2>
+    <div class="code-box">Golden: [b][c][ffd319]Ⓥ</div>
+    <div class="code-box">Red: [b][c][ff0000]Ⓥ</div>
+    <div class="code-box">Pink: [b][c][ff00ae]Ⓥ</div>
+    <div class="code-box">Violet: [b][c][b400ff]Ⓥ</div>
+    <div class="code-box">Blue: [b][c][0600ff]Ⓥ</div>
+    <div class="code-box">Green: [b][c][00ff00]Ⓥ</div>
+    <div class="code-box">Yellow: [b][c][FFFF00]Ⓥ</div>
+    <div class="code-box">Light Blue: [b][c][00ffff]Ⓥ</div>
+    <div class="code-box">Parrot Green: [b][c][bfff6d]Ⓥ</div>
+    <div class="code-box">Scarlet Blue: [b][c][00c6ff]Ⓥ</div>
+  </div>
+
+  <div class="animated-footer">ACHIACHIOFFICIAL TOOL</div>
+
+  <script>
+    function generateName() {
+      const name = document.getElementById('nameInput').value;
+      if (!name) {
+        document.getElementById('generatedName').innerText = "Please enter a name.";
+        return;
+      }
+
+      const styles = ['★', '✪', 'ᴳᵒᵈ', '彡', '꧁', 'ツ', 'シ', '乂', '亗', '么'];
+      const randomStyle = styles[Math.floor(Math.random() * styles.length)];
+
+      const output = `${randomStyle}${name}${randomStyle}`;
+      document.getElementById('generatedName').innerText = output;
+    }
+  </script>
+
+</body>
+</html>

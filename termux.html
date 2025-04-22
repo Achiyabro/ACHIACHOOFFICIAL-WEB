@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="si">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Termux Commands</title>
+  <style>
+    body {
+      background-color: #000;
+      color: #0f0;
+      font-family: monospace;
+      padding: 20px;
+    }
+    h1, h2 {
+      text-align: center;
+      color: #0ff;
+      animation: glow 2s ease-in-out infinite alternate;
+    }
+    .command {
+      margin: 15px 0;
+      padding: 10px;
+      border-left: 3px solid #0f0;
+      background-color: #111;
+      position: relative;
+    }
+    .copy-btn {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background-color: #0f0;
+      color: #000;
+      border: none;
+      padding: 3px 8px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    .copy-btn:hover {
+      background-color: #0b0;
+    }
+    @keyframes glow {
+      from {
+        text-shadow: 0 0 5px #0ff, 0 0 10px #0ff;
+      }
+      to {
+        text-shadow: 0 0 20px #0ff, 0 0 30px #0ff;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>Termux Basic Commands (සිංහලෙන්)</h1>
+
+  <div class="command">
+    <strong><code>ls</code></strong> - ෆයිල්/ෆෝල්ඩර් බලන්න
+    <button class="copy-btn" onclick="copyCommand('ls')">Copy</button>
+  </div>
+
+  <div class="command">
+    <strong><code>cd foldername</code></strong> - ෆෝල්ඩර් එකට යන්න
+    <button class="copy-btn" onclick="copyCommand('cd foldername')">Copy</button>
+  </div>
+
+  <div class="command">
+    <strong><code>cd ..</code></strong> - එක level එකකට පිටවෙන්න
+    <button class="copy-btn" onclick="copyCommand('cd ..')">Copy</button>
+  </div>
+
+  <div class="command">
+    <strong><code>pkg install</code></strong> - package එකක් install කරන්න
+    <button class="copy-btn" onclick="copyCommand('pkg install')">Copy</button>
+  </div>
+
+  <div class="command">
+    <strong><code>python filename.py</code></strong> - Python file එකක් run කරන්න
+    <button class="copy-btn" onclick="copyCommand('python filename.py')">Copy</button>
+  </div>
+
+  <div class="command">
+    <strong><code>bash filename.sh</code></strong> - Bash script එකක් run කරන්න
+    <button class="copy-btn" onclick="copyCommand('bash filename.sh')">Copy</button>
+  </div>
+
+  <div class="command">
+    <strong><code>CTRL + Z</code></strong> - Run වෙන ප්‍රොසස් එක stop කරන්න
+    <button class="copy-btn" onclick="copyCommand('CTRL + Z')">Copy</button>
+  </div>
+
+  <h2>විශේෂ Effects සහ Tools</h2>
+
+  <div class="command">
+    <strong><code>pkg install cmatrix</code></strong>  
+    <br/>➡️ Matrix animation install කරගන්න  
+    <br/>➡️ Run: <code>cmatrix</code> | Stop: <code>CTRL + X</code>
+    <button class="copy-btn" onclick="copyCommand('pkg install cmatrix')">Copy</button>
+  </div>
+
+  <div class="command">
+    <strong><code>pkg install libcaca</code></strong>  
+    <br/>➡️ ගින්දර animation install කරන්න  
+    <br/>➡️ Run: <code>cacafire</code> | Stop: <code>CTRL + C</code>
+    <button class="copy-btn" onclick="copyCommand('pkg install libcaca')">Copy</button>
+  </div>
+
+  <div class="command">
+    <strong><code>pkg install w3m</code></strong>  
+    <br/>➡️ Google බලන්න Terminal එකෙන්  
+    <br/>➡️ Run: <code>w3m https://google.com</code>
+    <button class="copy-btn" onclick="copyCommand('pkg install w3m')">Copy</button>
+  </div>
+
+  <div class="command">
+    <strong><code>pkg install play-audio</code></strong>  
+    <br/>➡️ Audio file එකක් play කරන්න  
+    <br/>➡️ Run: <code>play-audio file.mp3</code>
+    <button class="copy-btn" onclick="copyCommand('pkg install play-audio')">Copy</button>
+  </div>
+
+  <div class="command">
+    <strong><code>pip install termimage</code><br/><code>pkg install libsixel</code></strong>  
+    <br/>➡️ පින්තූර බලන්න terminal එකෙන්  
+    <br/>➡️ Run: <code>termimage image.jpg</code>
+    <button class="copy-btn" onclick="copyCommand('pip install termimage')">Copy</button>
+  </div>
+
+  <div class="command">
+    <strong><code>pkg install cowsay</code></strong>  
+    <br/>➡️ Cow character එකෙන් text එක කියවන්න  
+    <br/>➡️ Run: <code>cowsay Hello!</code>
+    <button class="copy-btn" onclick="copyCommand('pkg install cowsay')">Copy</button>
+  </div>
+
+  <!-- New commands added below -->
+
+  <div class="command">
+    <strong><code>pkg install toilet</code></strong>
+    <br/>➡️ Text එක ASCII art ලෙස convert කරගන්න හැකි tool එකක්
+    <br/>➡️ Run: <code>toilet text</code>
+    <button class="copy-btn" onclick="copyCommand('pkg install toilet')">Copy</button>
+  </div>
+    <div class="command">
+    <strong><code>pkg install figlet</code></strong>  
+    <br/>➡️ Text එක ASCII art banner ලෙස convert කරන්න පුළුවන් tool එකක්  
+    <br/>➡️ Run: <code>figlet "ඔබේ message එක"</code>  
+    <br/>➡️ උදාහරණයක්: <code>figlet "Hacking Is What I Live For"</code>  
+    <button class="copy-btn" onclick="copyCommand('pkg install figlet')">Copy</button>
+  </div>
+
+  <div class="command">
+    <strong><code>apt install sl</code></strong>
+    <br/>➡️ "Steam Locomotive" animation එකක් දක්වන tool එකක් (ගැලරියට fun එකක්)
+    <button class="copy-btn" onclick="copyCommand('apt install sl')">Copy</button>
+  </div>
+  
+
+
+  <div class="command">
+    <strong><code>sl</code></strong>
+    <br/>➡️ Steam Locomotive animation එක පෙන්වන්න  
+    <br/>➡️ Run: <code>sl</code>
+    <button class="copy-btn" onclick="copyCommand('sl')">Copy</button>
+  </div>
+
+  <div class="command">
+    <strong><code>telnet mapscii.me</code></strong>
+    <br/>➡️ Terminal එකෙන් ASCII map browser එකක් (mapscii) බලන්න  
+    <br/>➡️ Run: <code>telnet mapscii.me</code>  
+    <br/>➡️ නෙට් එක connected නම් ලොව සිතියම් ASCII art ලෙස browser කරගන්න පුළුවන්
+    <button class="copy-btn" onclick="copyCommand('telnet mapscii.me')">Copy</button>
+  </div>
+
+  <script>
+    function copyCommand(text) {
+      navigator.clipboard.writeText(text).then(() => {
+        alert("Copied: " + text);
+      });
+    }
+  </script>
+</body>
+</html>

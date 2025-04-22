@@ -1,0 +1,346 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>My Hacker Style Home</title>
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Quicksand', sans-serif;
+    }
+    body {
+      background: #000;
+      color: #0f0;
+    }
+    #matrix-canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: -1;
+      width: 100%;
+      height: 100%;
+      filter: blur(2px);
+      background: black;
+    }
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: #111;
+      padding: 15px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 100;
+      box-shadow: 0 0 10px #0f0;
+    }
+    nav h1 {
+      font-size: 1.5em;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+    }
+    nav ul li a {
+      text-decoration: none;
+      color: #0f0;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+    nav ul li a:hover {
+      color: #fff;
+    }
+    section {
+      padding: 100px 20px;
+      min-height: 100vh;
+    }
+    #home {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      background: transparent;
+    }
+    #about, #projects, #contact {
+      background: #111;
+      border-top: 1px solid #0f0;
+    }
+    #assistive-music {
+      position: fixed;
+      bottom: 100px;
+      right: 20px;
+      width: 60px;
+      height: 60px;
+      background: #0f0;
+      border-radius: 50%;
+      box-shadow: 0 0 15px #0f0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5em;
+      z-index: 9999;
+      cursor: grab;
+      user-select: none;
+    }
+    #music-panel {
+      display: none;
+      position: fixed;
+      bottom: 180px;
+      right: 20px;
+      background: #111;
+      padding: 10px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px #0f0;
+      z-index: 9998;
+    }
+    #music-panel button {
+      margin: 5px;
+      padding: 10px;
+      font-size: 1em;
+      background: #0f0;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    /* Animated Buttons */
+    .animated-button {
+      padding: 10px 20px;
+      margin: 10px;
+      background: #000;
+      color: #0f0;
+      font-weight: bold;
+      border: 2px solid transparent;
+      border-radius: 10px;
+      position: relative;
+      z-index: 0;
+      overflow: hidden;
+      transition: color 0.3s ease-in-out;
+    }
+
+    .animated-button::before {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(60deg, #f0f, #0ff, #0f0, #ff0, #f0f);
+      background-size: 400% 400%;
+      animation: glowing 10s linear infinite;
+    }
+
+    .animated-button::after {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      top: 2px;
+      left: 2px;
+      right: 2px;
+      bottom: 2px;
+      background: #000;
+      border-radius: 8px;
+    }
+
+    @keyframes glowing {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .animated-button span {
+      position: relative;
+      z-index: 1;
+    }
+    
+    
+    
+    
+    
+    
+    <!-- footer -->
+    
+  .glow-text {
+    animation: glow 1.5s ease-in-out infinite alternate;
+  }
+
+  @keyframes glow {
+    from {
+      text-shadow: 0 0 5px #0f0, 0 0 10px #0f0, 0 0 15px #0f0, 0 0 20px #0f0;
+    }
+    to {
+      text-shadow: 0 0 10px #0f0, 0 0 20px #0f0, 0 0 30px #0f0, 0 0 40px #0f0;
+    }
+  }
+
+  footer a:hover {
+    color: #fff;
+    text-shadow: 0 0 5px #0f0, 0 0 10px #0f0;
+  }
+
+
+  </style>
+</head>
+<body>
+  <canvas id="matrix-canvas"></canvas>
+  <nav>
+    <h1>My Web</h1>
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>  
+  <section id="home">
+    <h2>Welcome to My Hacker Home</h2>
+    <p>This is the main landing section.</p>
+  </section>  
+  <section id="about">
+    <h2>About Me</h2>
+    <p>I am a developer experimenting with hacker-style websites.</p>
+  </section>  
+  <section id="projects">
+<h2>Projects</h2>
+    <div>
+      <button class="animated-button" onclick="location.href='textrepeater.html'"><span>Text Repeater</span></button>
+      <button class="animated-button" onclick="location.href='gaming-name-tool.html'"><span>Gaming Name Generator</span></button>
+      <button class="animated-button" onclick="location.href='comingsoon.html'"><span>Button 2</span></button>
+            <button class="animated-button" onclick="location.href='Downloader.html'"><span>yt,tiktok downloader</span></button>
+                     <button class="animated-button" onclick="location.href='termux.html'"><span>termux command </span></button>
+    </div>
+  </section>  
+    <h2>Contact</h2>
+    <div>
+      <button class="animated-button" onclick="window.open('https://wa.me/940763620748')"><span>WhatsApp</span></button>
+      <button class="animated-button" onclick="window.open('https://tiktok.com/@achi_achi_official')"><span>TikTok</span></button>
+      <button class="animated-button" onclick="window.open('https://www.facebook.com/share/15VEi3ky1m/')"><span>Facebook</span></button>
+      <button class="animated-button"><span>YouTube</span></button>
+    </div>
+  </section>  
+  <div id="assistive-music">🎧</div>
+  <div id="music-panel">
+    <button onclick="toggleTrack()">🔁</button>
+    <button onclick="playPause()">▶️/⏸️</button>
+    <button onclick="rewind()">⏪</button>
+    <button onclick="volumeUp()">🔊+</button>
+    <button onclick="volumeDown()">🔉-</button>
+  </div>
+  <audio id="track1" src="yourmusic.mp3"></audio> 
+  <audio id="track2" src="yourmusic02.mp3"></audio>
+
+  <script>
+    const canvas = document.getElementById("matrix-canvas");
+    const ctx = canvas.getContext("2d");
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    const letters = "アァイィウヴ...ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789".split("");
+    const fontSize = 14;
+    const columns = canvas.width / fontSize;
+    const drops = Array(Math.floor(columns)).fill(1);
+
+    function drawMatrix() {
+      ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+      ctx.fillStyle = "#0f0";
+      ctx.font = fontSize + "px monospace";
+      for (let i = 0; i < drops.length; i++) {
+        const text = letters[Math.floor(Math.random() * letters.length)];
+        ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+        if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+          drops[i] = 0;
+        }
+        drops[i]++;
+      }
+    }
+    setInterval(drawMatrix, 35);
+    window.addEventListener('resize', () => {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    });
+
+    const track1 = document.getElementById("track1");
+    const track2 = document.getElementById("track2");
+    let currentTrack = track1;
+    let isPlaying = false;
+
+    function toggleTrack() {
+      currentTrack.pause();
+      currentTrack.currentTime = 0;
+      isPlaying = false;
+      currentTrack = currentTrack === track1 ? track2 : track1;
+      currentTrack.play();
+      isPlaying = true;
+    }
+
+    function playPause() {
+      if (isPlaying) {
+        currentTrack.pause();
+        isPlaying = false;
+      } else {
+        currentTrack.play();
+        isPlaying = true;
+      }
+    }
+
+    function rewind() {
+      currentTrack.currentTime = 0;
+    }
+
+    function volumeUp() {
+      if (currentTrack.volume < 1) currentTrack.volume += 0.1;
+    }
+
+    function volumeDown() {
+      if (currentTrack.volume > 0) currentTrack.volume -= 0.1;
+    }
+
+    const musicBtn = document.getElementById('assistive-music');
+    const musicPanel = document.getElementById('music-panel');
+
+    musicBtn.onclick = () => {
+      musicPanel.style.display = (musicPanel.style.display === 'block') ? 'none' : 'block';
+    };
+
+    let isDragging = false;
+    let offsetX, offsetY;
+
+    musicBtn.addEventListener('mousedown', function(e) {
+      isDragging = true;
+      offsetX = e.clientX - musicBtn.getBoundingClientRect().left;
+      offsetY = e.clientY - musicBtn.getBoundingClientRect().top;
+      musicBtn.style.cursor = "grabbing";
+    });
+
+    document.addEventListener('mousemove', function(e) {
+      if (isDragging) {
+        musicBtn.style.left = (e.clientX - offsetX) + "px";
+        musicBtn.style.top = (e.clientY - offsetY) + "px";
+        musicBtn.style.right = "auto";
+        musicBtn.style.bottom = "auto";
+      }
+    });
+
+    document.addEventListener('mouseup', function() {
+      isDragging = false;
+      musicBtn.style.cursor = "grab";
+    });
+  </script>
+</body>
+<footer style="background:#111; color:#0f0; padding:20px; text-align:center; border-top:1px solid #0f0;">
+  <p class="glow-text">Follow me:</p>
+  <div style="margin:10px;">
+    <a href="https://facebook.com" target="_blank" class="glow-text" style="margin:0 10px; color:#0f0;">Facebook</a>
+    <a href="https://tiktok.com" target="_blank" class="glow-text" style="margin:0 10px; color:#0f0;">TikTok</a>
+    <a href="https://wa.me/940763620748" target="_blank" class="glow-text" style="margin:0 10px; color:#0f0;">WhatsApp</a>
+  </div>
+  <p class="glow-text" style="margin-top:10px;">&copy; 2025 achiachiofficial web</p>
+</footer>
+</html>
