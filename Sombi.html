@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="si">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Zombie Video with Black Border Box</title>
+  <style>
+    * {
+      margin: 0; padding: 0; box-sizing: border-box;
+    }
+    body, html {
+      height: 100%;
+      overflow: hidden;
+      background: black;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    video {
+      position: fixed;
+      top: 0; left: 0;
+      min-width: 100vw;
+      min-height: 100vh;
+      object-fit: cover;
+      z-index: -1;
+      background: black;
+    }
+ #soundToggle {
+  position: fixed;
+  top: 90%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80px;
+  height: 40px;
+  background-color: transparent;
+  border: 2px solid rgba(0, 0, 0, 0.3); /* දුඹුරු කලු ඉර */
+  border-radius: 8px;
+  cursor: pointer;
+  user-select: none;
+  color: transparent;
+  z-index: 10;
+}  </style>
+</head>
+<body>
+
+  <video id="zombieVideo" autoplay muted loop playsinline>
+    <source src="sombi wallpaper.mp4" type="video/mp4" />
+    ඔබේ බ්‍රවුසරය මෙම වීඩියෝව ප්ලේ කිරීමට සහය නොදක්වයි.
+  </video>
+
+  <div id="soundToggle" title="Toggle Sound"></div>
+
+  <script>
+    const video = document.getElementById('zombieVideo');
+    const toggle = document.getElementById('soundToggle');
+    let soundOn = false;
+
+    toggle.addEventListener('click', () => {
+      soundOn = !soundOn;
+      video.muted = !soundOn;
+    });
+  </script>
+
+</body>
+</html>
